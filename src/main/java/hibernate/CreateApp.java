@@ -1,10 +1,11 @@
-package org.example;
+package hibernate;
 
+import entity.Song;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class App
+public class CreateApp
 {
     public static void main( String[] args )
     {

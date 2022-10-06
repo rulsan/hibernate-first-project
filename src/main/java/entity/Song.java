@@ -1,10 +1,12 @@
-package org.example;
+package entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+//import javax.persistence.Table;
 
 @Entity
+//@Table(name = "Songs") // if name of table doesn't match
 public class Song {
 
     @Id
@@ -43,5 +45,14 @@ public class Song {
 
     public void setSinger(String singer) {
         this.singer = singer;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", songName='" + songName + '\'' +
+                ", singer='" + singer + '\'' +
+                '}';
     }
 }
