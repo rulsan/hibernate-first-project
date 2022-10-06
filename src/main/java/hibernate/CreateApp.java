@@ -3,20 +3,13 @@ package hibernate;
 import entity.Song;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import utils.HibernateUtils;
 
 public class CreateApp
 {
     public static void main( String[] args )
     {
-
-        //create configuration
-        Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
-        configuration.addAnnotatedClass(Song.class);
-
-        //create session factory
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
         //initialize the session object
         Session session = sessionFactory.openSession();

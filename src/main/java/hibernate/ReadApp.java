@@ -3,17 +3,13 @@ package hibernate;
 import entity.Song;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import utils.HibernateUtils;
 
 public class ReadApp {
 
     public static void main(String[] args) {
 
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        configuration.addAnnotatedClass(Song.class);
-
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
         Session session = sessionFactory.openSession();
 
