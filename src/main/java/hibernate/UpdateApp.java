@@ -3,26 +3,24 @@ package hibernate;
 import entity.Song;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import utils.HibernateUtils;
 
 public class UpdateApp {
 
     public static void main(String[] args) {
 
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        configuration.addAnnotatedClass(Song.class);
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        if(sessionFactory != null) {
 
-        Session session = sessionFactory.openSession();
+            Session session = sessionFactory.openSession();
 
-        Song song = session.get(Song.class, 1);
-        song.setSongName("RIM ZHIM GIRE SAWAN");
+            Song song = session.get(Song.class, 1);
+            song.setSongName("RIM ZHIM GIRE SAWAN - UPD");
 
-        session.beginTransaction();
-        session.update(song);
-        session.getTransaction().commit();
-
+            session.beginTransaction();
+        //  session.update(song); - it can be omitted
+            session.getTransaction().commit();
+        }
     }
 }
