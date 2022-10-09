@@ -16,7 +16,7 @@ public class UpdateApp {
             Session session = sessionFactory.openSession();
 
             Song song = session.get(Song.class, 1);
-            song.setSongName("RIM ZHIM GIRE SAWAN - UPD");
+            song.setSongName("RIM ZHIM GIRE SAWAN - UPDATED");
 
             session.beginTransaction();
         //  session.update(song); - it can be omitted
